@@ -1,7 +1,7 @@
 class Vote extends React.Component{
   constructor(props){
     super(props);
-    this.state = { voter: '' };
+    this.state = { voter: '', displayDirection: true };
     this.submitBallot = this.submitBallot.bind(this);
     this.setFrontEndVote = this.setFrontEndVote.bind(this);
     this.setBackEndVote = this.setBackEndVote.bind(this);
@@ -32,6 +32,9 @@ class Vote extends React.Component{
           }
         }
   }
+  goAway(){
+    this.setState({ displayDirection: !this.state.displayDirection });
+  }
   submitBallot(e){
     e.preventDefault();
     $.ajax({
@@ -59,11 +62,39 @@ class Vote extends React.Component{
     }
     )
   }
+  directions(){
+    if(this.state.displayDirection){
+      return(
+        <div ref='directions'>
+          <div className='ballot-box'>
+            <p>Enter your name and select the current team that you are voting for.</p>
+            <p>Rate the team's application from 1-5 (5 being the best), and leave any comments that you may have in the field below.</p>
+            <p>Students will not have access to the names of the people who left comments, so feel free to be as critical as you think is helpful.</p>
+            <b>Grading criteria are as follows:</b>
+            <p>&nbsp;&nbsp;&nbsp; <b>Front End</b> - Use of CSS/styling as well as React/AJAX</p>
+            <p>&nbsp;&nbsp;&nbsp; <b>Back End</b> - Database structure, back-end architecture</p>
+            <p>&nbsp;&nbsp;&nbsp; <b>Creativity/Concept</b> - Implementation of gems, thoughfulness of idea, originality</p>
+            <p>&nbsp;&nbsp;&nbsp; <b>Overall</b> - Your overall valuation of the application</p>
+            <div className='center'>
+              <a className='btn waves-effect waves-light' onClick={this.goAway.bind(this)}>I already knew that, make this go away.</a>
+            </div>
+          </div>
+        </div>
+      )
+    } else {
+      return(
+        <div className='center'>
+          <a className='btn waves-effect waves-light' onClick={this.goAway.bind(this)}>I forgot how to do the thing. Help.</a>
+        </div>
+      )
+    }
+  }
   render(){
     return(
       <div className='row'>
         <div className='col s12 m6 offset-m3'>
           <h3 className='center'>Hackathon Ballot</h3>
+          { this.directions() }
           <form  onSubmit={this.submitBallot}>
             <div className='ballot-box'>
               <div className='row'>

@@ -24,35 +24,35 @@ class Results extends React.Component{
         <div className='col s12 m8 offset-m2'>
           <h3 className='center'>Results</h3>
           <div className='ballot-box'>
-            <b>Choose My Restaurant Final Score: {this.state.results.team1}</b>
+            <b>Choose My Restaurant Final Score: {this.state.results.team1} of 20</b>
             <p>Front End: {this.state.totals.team1.front_end}</p>
             <p>Back End: {this.state.totals.team1.back_end}</p>
             <p>Creativity: {this.state.totals.team1.creativity}</p>
             <p>Overall: {this.state.totals.team1.overall}</p>
           </div>
           <div className='ballot-box'>
-            <b>Github Ratings Final Score: {this.state.results.team2}</b>
+            <b>Github Ratings Final Score: {this.state.results.team2} of 20</b>
             <p>Front End: {this.state.totals.team2.front_end}</p>
             <p>Back End: {this.state.totals.team2.back_end}</p>
             <p>Creativity: {this.state.totals.team2.creativity}</p>
             <p>Overall: {this.state.totals.team2.overall}</p>
           </div>
           <div className='ballot-box'>
-            <b>Growler GPS Final Score: {this.state.results.team3}</b>
+            <b>Growler GPS Final Score: {this.state.results.team3} of 20</b>
             <p>Front End: {this.state.totals.team3.front_end}</p>
             <p>Back End: {this.state.totals.team3.back_end}</p>
             <p>Creativity: {this.state.totals.team3.creativity}</p>
             <p>Overall: {this.state.totals.team3.overall}</p>
           </div>
           <div className='ballot-box'>
-            <b>SLC Activity Meetup Final Score: {this.state.results.team4}</b>
+            <b>SLC Activity Meetup Final Score: {this.state.results.team4} of 20</b>
             <p>Front End: {this.state.totals.team4.front_end}</p>
             <p>Back End: {this.state.totals.team4.back_end}</p>
             <p>Creativity: {this.state.totals.team4.creativity}</p>
             <p>Overall: {this.state.totals.team4.overall}</p>
           </div>
           <div className='ballot-box'>
-            <b>Drink & Thrive Final Score: {this.state.results.team5}</b>
+            <b>Drink & Thrive Final Score: {this.state.results.team5} of 20</b>
             <p>Front End: {this.state.totals.team5.front_end}</p>
             <p>Back End: {this.state.totals.team5.back_end}</p>
             <p>Creativity: {this.state.totals.team5.creativity}</p>
