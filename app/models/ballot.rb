@@ -36,7 +36,7 @@ class Ballot < ActiveRecord::Base
     puts '------------------------------'
     puts 'Creativity / Concept Comments:'
     puts '------------------------------'
-    front_end_comments.each do |comment|
+    creativity_comments.each do |comment|
       puts '.'
       puts comment
     end
@@ -44,7 +44,7 @@ class Ballot < ActiveRecord::Base
     puts '-----------------'
     puts 'Overall Comments:'
     puts '-----------------'
-    front_end_comments.each do |comment|
+    overall_comments.each do |comment|
       puts '.'
       puts comment
     end
