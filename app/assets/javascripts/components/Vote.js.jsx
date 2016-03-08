@@ -70,11 +70,12 @@ class Vote extends React.Component{
             <p>Enter your name and select the current team that you are voting for.</p>
             <p>Rate the team's application from 1-10 (10 being the best), and leave any comments that you may have in the field below.</p>
             <p>Students will not have access to the names of the people who left comments, so feel free to be as critical as you think is helpful.</p>
+            <p>When you are finished evaluating the presentation, submit the form and select the next team you will be judging from the select field at the top.</p>
             <b>Grading criteria are as follows:</b>
-            <p>&nbsp;&nbsp;&nbsp; <b>Front End</b> - Use of CSS/styling as well as React/AJAX</p>
-            <p>&nbsp;&nbsp;&nbsp; <b>Back End</b> - Database structure, back-end architecture</p>
+            <p>&nbsp;&nbsp;&nbsp; <b>Front End</b> - Use of CSS/styling, front-end-frameworks, [React/AJAX for Hackathon 2]</p>
+            <p>&nbsp;&nbsp;&nbsp; <b>Back End</b> - Database structure, routing, models, controllers, back-end architecture</p>
             <p>&nbsp;&nbsp;&nbsp; <b>Creativity/Concept</b> - Implementation of gems, thoughfulness of idea, originality</p>
-            <p>&nbsp;&nbsp;&nbsp; <b>Overall</b> - Your overall valuation of the application</p>
+            <p>&nbsp;&nbsp;&nbsp; <b>Overall</b> - Your overall valuation of the application: Is it usable? Is it a good idea?</p>
             <div className='center'>
               <a className='btn waves-effect waves-light' onClick={this.goAway.bind(this)}>I already knew that, make this go away.</a>
             </div>
