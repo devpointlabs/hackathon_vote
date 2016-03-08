@@ -15,7 +15,7 @@ class Results extends React.Component{
       return(
         <div className='col s12 m6'>
           <div className='ballot-box'>
-            <b>{ team } Final Score: {this.state.totals[team].result} of 20</b>
+            <b>{ team } Final Score: {this.state.totals[team].result}%</b>
             <p>Front End: {this.state.totals[team].front_end}</p>
             <p>Back End: {this.state.totals[team].back_end}</p>
             <p>Creativity: {this.state.totals[team].creativity}</p>

@@ -15,7 +15,7 @@ class DashboardController < ApplicationController
       @totals[team.name][:overall] = team.ballots.average(:overall).to_s.to_f
     end
     @totals.keys.each do |team|
-      @totals[team][:result] = @totals[team].values.inject(:+)
+      @totals[team][:result] = (@totals[team].values.inject(:+) / 4) * 10
     end
     @teams.each do |team|
       voters = []

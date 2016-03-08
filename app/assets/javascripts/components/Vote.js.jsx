@@ -68,7 +68,7 @@ class Vote extends React.Component{
         <div ref='directions'>
           <div className='ballot-box'>
             <p>Enter your name and select the current team that you are voting for.</p>
-            <p>Rate the team's application from 1-5 (5 being the best), and leave any comments that you may have in the field below.</p>
+            <p>Rate the team's application from 1-10 (10 being the best), and leave any comments that you may have in the field below.</p>
             <p>Students will not have access to the names of the people who left comments, so feel free to be as critical as you think is helpful.</p>
             <b>Grading criteria are as follows:</b>
             <p>&nbsp;&nbsp;&nbsp; <b>Front End</b> - Use of CSS/styling as well as React/AJAX</p>
@@ -96,12 +96,36 @@ class Vote extends React.Component{
         <option value={team.id}>{team.name}</option>
       );
     });
+    let fe_radios = [];
+    for(let i = 1; i < 11; i++){
+      let key = `fe_${i}`
+      fe_radios.push(<input name="front_end" type="radio" id={key} key={`${key}-radio`}/>);
+      fe_radios.push(<label htmlFor={key} onClick={this.setFrontEndVote} key={`${key}-label`}>{i}</label>);
+    }
+    let be_radios = [];
+    for(let i = 1; i < 11; i++){
+      let key = `be_${i}`
+      be_radios.push(<input name="back_end" type="radio" id={key} key={`${key}-radio`}/>);
+      be_radios.push(<label htmlFor={key} onClick={this.setBackEndVote} key={`${key}-label`}>{i}</label>);
+    }
+    let cr_radios = [];
+    for(let i = 1; i < 11; i++){
+      let key = `cr_${i}`
+      cr_radios.push(<input name="creativity" type="radio" id={key} key={`${key}-radio`}/>);
+      cr_radios.push(<label htmlFor={key} onClick={this.setCreativityVote} key={`${key}-label`}>{i}</label>);
+    }
+    let ov_radios = [];
+    for(let i = 1; i < 11; i++){
+      let key = `ov_${i}`
+      ov_radios.push(<input name="overall" type="radio" id={key} key={`${key}-radio`}/>);
+      ov_radios.push(<label htmlFor={key} onClick={this.setOverallVote} key={`${key}-label`}>{i}</label>);
+    }
     return(
       <div className='row'>
-        <div className='col s12 m6 offset-m3'>
+        <div className='col s12 m8 offset-m2'>
           <h3 className='center'>Hackathon Ballot</h3>
           { this.directions() }
-          <form  onSubmit={this.submitBallot}>
+          <form onSubmit={this.submitBallot}>
             <div className='ballot-box'>
               <div className='row'>
                 <div className='col s12 m6'>
@@ -119,16 +143,7 @@ class Vote extends React.Component{
             <div className='ballot-box'>
               <b className='col s3'>Front End</b>
               <div className='radios col s9'>
-                <input name="front_end" type="radio" id="fe_1" />
-                <label htmlFor="fe_1" onClick={this.setFrontEndVote}>1</label>
-                <input name="front_end" type="radio" id="fe_2" />
-                <label htmlFor="fe_2" onClick={this.setFrontEndVote}>2</label>
-                <input name="front_end" type="radio" id="fe_3" />
-                <label htmlFor="fe_3" onClick={this.setFrontEndVote}>3</label>
-                <input name="front_end" type="radio" id="fe_4" />
-                <label htmlFor="fe_4" onClick={this.setFrontEndVote}>4</label>
-                <input name="front_end" type="radio" id="fe_5" />
-                <label htmlFor="fe_5" onClick={this.setFrontEndVote}>5</label>
+                { fe_radios }
               </div>
               <br />
               <div className=''>
@@ -141,16 +156,7 @@ class Vote extends React.Component{
             <div className='ballot-box'>
               <b className='col s3'>Back End</b>
               <div className='radios col s9'>
-                <input name="back_end" type="radio" id="be_1" />
-                <label htmlFor="be_1" onClick={this.setBackEndVote}>1</label>
-                <input name="back_end" type="radio" id="be_2" />
-                <label htmlFor="be_2" onClick={this.setBackEndVote}>2</label>
-                <input name="back_end" type="radio" id="be_3" />
-                <label htmlFor="be_3" onClick={this.setBackEndVote}>3</label>
-                <input name="back_end" type="radio" id="be_4" />
-                <label htmlFor="be_4" onClick={this.setBackEndVote}>4</label>
-                <input name="back_end" type="radio" id="be_5" />
-                <label htmlFor="be_5" onClick={this.setBackEndVote}>5</label>
+                { be_radios }
               </div>
               <br />
               <div className=''>
@@ -163,16 +169,7 @@ class Vote extends React.Component{
             <div className='ballot-box'>
               <b className='col s3'>Creativity / Concept</b>
               <div className='radios col s9'>
-                <input name="creativity" type="radio" id="cr_1" />
-                <label htmlFor="cr_1" onClick={this.setCreativityVote}>1</label>
-                <input name="creativity" type="radio" id="cr_2" />
-                <label htmlFor="cr_2" onClick={this.setCreativityVote}>2</label>
-                <input name="creativity" type="radio" id="cr_3" />
-                <label htmlFor="cr_3" onClick={this.setCreativityVote}>3</label>
-                <input name="creativity" type="radio" id="cr_4" />
-                <label htmlFor="cr_4" onClick={this.setCreativityVote}>4</label>
-                <input name="creativity" type="radio" id="cr_5" />
-                <label htmlFor="cr_5" onClick={this.setCreativityVote}>5</label>
+                { cr_radios }
               </div>
               <br />
               <div className=''>
@@ -185,16 +182,7 @@ class Vote extends React.Component{
             <div className='ballot-box'>
               <b className='col s3'>Overall</b>
               <div className='radios col s9'>
-                <input name="overall" type="radio" id="ov_1" />
-                <label htmlFor="ov_1" onClick={this.setOverallVote}>1</label>
-                <input name="overall" type="radio" id="ov_2" />
-                <label htmlFor="ov_2" onClick={this.setOverallVote}>2</label>
-                <input name="overall" type="radio" id="ov_3" />
-                <label htmlFor="ov_3" onClick={this.setOverallVote}>3</label>
-                <input name="overall" type="radio" id="ov_4" />
-                <label htmlFor="ov_4" onClick={this.setOverallVote}>4</label>
-                <input name="overall" type="radio" id="ov_5" />
-                <label htmlFor="ov_5" onClick={this.setOverallVote}>5</label>
+                { ov_radios }
               </div>
               <br />
               <div className=''>
