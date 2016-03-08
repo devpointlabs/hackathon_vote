@@ -1,7 +1,7 @@
 class Vote extends React.Component{
   constructor(props){
     super(props);
-    this.state = { voter: '', displayDirection: true };
+    this.state = { voter: '', displayDirection: true, teams: this.props.teams };
     this.submitBallot = this.submitBallot.bind(this);
     this.setFrontEndVote = this.setFrontEndVote.bind(this);
     this.setBackEndVote = this.setBackEndVote.bind(this);
@@ -41,7 +41,7 @@ class Vote extends React.Component{
       url: '/ballots',
       type: 'POST',
       data: { ballot: {
-                team: this.refs.team.value,
+                team_id: this.refs.team.value,
                 voter: this.refs.name.value,
                 front_end: this.state.frontEnd,
                 back_end: this.state.backEnd,
@@ -90,6 +90,12 @@ class Vote extends React.Component{
     }
   }
   render(){
+    let options = this.state.teams.map( team => {
+      let key = `${team.name}-option`;
+      return(
+        <option value={team.id}>{team.name}</option>
+      );
+    });
     return(
       <div className='row'>
         <div className='col s12 m6 offset-m3'>
@@ -105,11 +111,7 @@ class Vote extends React.Component{
                 <div className='col s12 m6 input-field'>
                   <select className='browser-default' ref='team' defaultValue=''>
                     <option value="" disabled>Select Team</option>
-                    <option value="1">Choose My Restaurant</option>
-                    <option value="2">Github Ratings</option>
-                    <option value="3">Growler GPS</option>
-                    <option value="4">SLC Activity Meetup</option>
-                    <option value="5">Drink & Thrive</option>
+                    { options }
                   </select>
                 </div>
               </div>
