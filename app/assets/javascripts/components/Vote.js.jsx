@@ -68,7 +68,7 @@ class Vote extends React.Component{
         <div ref='directions'>
           <div className='ballot-box'>
             <p>Enter your name and select the current team that you are voting for.</p>
-            <p>Rate the team's application from 1-10 (10 being the best), and leave any comments that you may have in the field below.</p>
+            <p>Rate the teams application from 1-5 (5 being the best), and leave any comments that you may have in the field below.</p>
             <p>Students will not have access to the names of the people who left comments, so feel free to be as critical as you think is helpful.</p>
             <p>When you are finished evaluating the presentation, submit the form and select the next team you will be judging from the select field at the top.</p>
             <b>Grading criteria are as follows:</b>
@@ -98,32 +98,32 @@ class Vote extends React.Component{
       );
     });
     let fe_radios = [];
-    for(let i = 1; i < 11; i++){
+    for(let i = 1; i < 6; i++){
       let key = `fe_${i}`
       fe_radios.push(<input name="front_end" type="radio" id={key} key={`${key}-radio`}/>);
       fe_radios.push(<label htmlFor={key} onClick={this.setFrontEndVote} key={`${key}-label`}>{i}</label>);
     }
     let be_radios = [];
-    for(let i = 1; i < 11; i++){
+    for(let i = 1; i < 6; i++){
       let key = `be_${i}`
       be_radios.push(<input name="back_end" type="radio" id={key} key={`${key}-radio`}/>);
       be_radios.push(<label htmlFor={key} onClick={this.setBackEndVote} key={`${key}-label`}>{i}</label>);
     }
     let cr_radios = [];
-    for(let i = 1; i < 11; i++){
+    for(let i = 1; i < 6; i++){
       let key = `cr_${i}`
       cr_radios.push(<input name="creativity" type="radio" id={key} key={`${key}-radio`}/>);
       cr_radios.push(<label htmlFor={key} onClick={this.setCreativityVote} key={`${key}-label`}>{i}</label>);
     }
     let ov_radios = [];
-    for(let i = 1; i < 11; i++){
+    for(let i = 1; i < 6; i++){
       let key = `ov_${i}`
       ov_radios.push(<input name="overall" type="radio" id={key} key={`${key}-radio`}/>);
       ov_radios.push(<label htmlFor={key} onClick={this.setOverallVote} key={`${key}-label`}>{i}</label>);
     }
     return(
       <div className='row'>
-        <div className='col s12 m8 offset-m2'>
+        <div className='col s12 m8 l6 offset-m2 offset-l3'>
           <h3 className='center'>Hackathon Ballot</h3>
           { this.directions() }
           <form onSubmit={this.submitBallot}>
